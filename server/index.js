@@ -17,10 +17,11 @@ app.use(cors())
 
 
 // CRUD operation - Create read update delete
-
-CRUD
 // post data - get data from the front end and receive it using app.post
-app.get("/")
+// route creating
+app.get("/", (req, res) => {
+    res.send("Welcome to our chat app APIs...");
+});
 
 // req when receiving data and res to send data to fron end
 
