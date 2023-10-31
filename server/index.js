@@ -1,19 +1,20 @@
 // to bring in express
-const express = require("express")
-const cors = require("cors") // allow front end communication
+const express = require("express");
+const cors = require("cors"); // allow front end communication
 const mongoose = require("mongoose");
-const { CONNREFUSED } = require("dns");
+const userRoute = require("./Routes/UserRoute")
 
 // object which will have various methods that will be used to create the chat app
 const app = express();
 
 // configure env package
-require("dotenv").config()
+require("dotenv").config();
 
 
 // modular functions that add extra capability to the app
-app.use(express.json()) // this will allow to use json data - send and receive
-app.use(cors())
+app.use(express.json()); // this will allow to use json data - send and receive
+app.use(cors());
+app.use("/api/users", userRoute);
 
 
 // CRUD operation - Create read update delete
