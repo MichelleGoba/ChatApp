@@ -4,5 +4,6 @@ const router = express.Router();
 
 // registration route
 router.post("/register", registerUser);
+router.post("/login", registerUser);
 
 module.exports = router;
