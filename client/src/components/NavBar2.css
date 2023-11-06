@@ -1,0 +1,15 @@
+.navBar2{
+    position: absolute;
+    top: 0.2; 
+    right: 0;
+    bottom: 0.2;  
+    height: 90%;
+    /* border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px; */
+    /* left: 0;  */
+    background: grey;
+    width: 150px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
