@@ -1,4 +1,4 @@
-.navBar2{
+.sidebar2{
     position: absolute;
     top: 0.2; 
     right: 0;
@@ -7,9 +7,11 @@
     /* border-top-left-radius: 20px;
     border-bottom-left-radius: 20px; */
     /* left: 0;  */
-    background: grey;
+    background: #F5F5F5;
+    padding-left: 0px;
+    left: 302px;
     width: 150px;
     overflow: hidden;
-    transition: width 0.2s linear;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    /* transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1); */
 }

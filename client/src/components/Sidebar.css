@@ -16,13 +16,11 @@ nav{
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     /* left: 0;  */
-    background: grey;
+    background: #EEECEC;
     width: 150px;
     overflow: hidden;
     transition: width 0.2s linear;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-    
-
+   
 }
 
 a{
