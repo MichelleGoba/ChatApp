@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Register from "./pages/register/Register"
+import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
@@ -22,9 +23,10 @@ function App() {
       <Container>
         <Routes>
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
           {/* <Route path="/" element={<Chat />} />
          
-          <Route path="/login" element={<Login />} />
+          
           <Route path="/splash" element={<Splashscreen />} /> */}
           <Route path="*" element={<Navigate to="/" />} />
           
