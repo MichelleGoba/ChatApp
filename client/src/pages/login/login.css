@@ -1,0 +1,67 @@
+.logCont{
+    padding-top: 80px;
+    height: 100vh;
+
+}
+.logForm{
+    
+    height: 80vh;
+}
+.logTitle{
+    text-align: center;
+    padding-top: 40px;
+}
+
+
+.logRow{
+    border-top-left-radius:20px ;
+    border-top-right-radius:20px ;
+    border-bottom-left-radius:20px ;
+    border-bottom-right-radius:20px ;
+    box-shadow:   5px 10px 18px #888888; 
+}
+
+.column{
+    display: flex;
+    height: 70vh;
+    padding: 50px;
+}
+.logBtn{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.logButton1, .regButton1{
+    padding: 10px;
+    width: 200px;
+    border-radius: 15px;
+    border: none;
+    box-shadow:   5px 10px 15px #c7c7c7;
+    font-size: 20px;
+}
+
+.logButton1{
+    background-color: #E0BACF;
+    
+}
+
+.inputField{
+    height: 60px;
+    margin-top: 10px;
+    
+}
+
+.signUpBtn{
+   height: 50px; 
+   border-radius: 10px;
+   background-image: linear-gradient(to right, rgb(255, 5, 222) , rgb(47, 34, 226));
+   color: white;
+  font-size: 20px;
+}
+
+.logCol.col-6 > div > p > span{
+    color: rgb(218, 0, 218);
+}

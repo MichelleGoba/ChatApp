@@ -1,39 +1,55 @@
-import { Alert, Button, Form, Row, Col, Stack } from "react-bootstrap";
+import {
+  Alert,
+  Form,
+  Row,
+  Col,
+  Stack,
+  Container,
+} from "react-bootstrap";
 import LoginImg from "../../assets/Images/signup.png";
 import { Link } from "react-router-dom";
+import "./register.css";
 
 const Register = () => {
-    return (
-        <>
-        <Form>
-            <Row>
-                <Col xs={6}>
-                    <Stack gap={3}>
-                        <h2>Chat App</h2>
-                        <div className="regBtn">
-                            <Link to="/login"><button>Log In</button></Link>
-                            <Link to="/register"><button>Sign Up</button></Link>
-                        </div>
-                    
-                        <Form.Control type="text" placeholder="Username"/>
-                        <Form.Control type="email" placeholder="Email"/>
-                        <Form.Control type="password" placeholder="Password"/>
-                        <Form.Control type="password" placeholder="Confirm Password"/>
-                        <p>Already have an account? <span>Log in</span></p>
-                        <Button>Sign Up</Button>
-                        <Alert variant="danger"><p>An error occured</p></Alert>
-                      
-                    </Stack>
-                </Col>
+  return (
+    <Container className="regCont">
+      <Form className="regForm">
+        <div className="regRow">
+          <h2 className="regTitle">Chat App</h2>
+          <div className="regBtn">
+            <Link to="/login">
+              <button className="logButton">Log In</button>
+            </Link>
+            <Link to="/register">
+              <button className="regButton">Sign Up</button>
+            </Link>
+          </div>
 
-                <Col className="regImg">
-                    <img src={LoginImg} />
+          <Row className="column">
+            <Col xs={6} className="regCol">
+              <Stack gap={3}>
+                <Form.Control type="text" placeholder="Username" className="inputField" />
+                <Form.Control type="email" placeholder="Email" className="inputField"/>
+                <Form.Control type="password" placeholder="Password" className="inputField"/>
+                <Form.Control type="password" placeholder="Confirm Password" className="inputField"/>
+                <p>
+                  Already have an account? <span>Log in</span>
+                </p>
+                <button className="signUpBtn">Sign Up</button>
+                <Alert variant="danger">
+                  <p>Errorr message</p>
+                </Alert>
+              </Stack>
+            </Col>
 
-                </Col>
-            </Row>
-        </Form>
-        </>
-    );
-}
- 
+            <Col xs={6} className="regImg">
+              <img src={LoginImg} />
+            </Col>
+          </Row>
+        </div>
+      </Form>
+    </Container>
+  );
+};
+
 export default Register;
