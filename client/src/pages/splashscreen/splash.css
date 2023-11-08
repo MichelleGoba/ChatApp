@@ -1,0 +1,54 @@
+.splashCont{
+    padding-top: 80px;
+    height: 100vh;
+  
+   
+    
+}
+
+.backgroundImg{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    background-image: url(../../assets/Images/backgroundImg.png);
+    height: 85vh;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+   box-shadow:   5px 10px 18px #888888; 
+    
+}
+h2{
+    padding-top: 50px;
+    text-align: center;
+}
+
+.splashImg{
+    text-align: center;
+    padding-top: 80px;
+}
+
+h3{
+    text-align: center;
+    padding-top: 50px;
+    color: navy;
+}
+
+.splashBtn{
+    text-align: center;
+    padding-top: 50px;
+}
+
+.splashButton{
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    background-image: linear-gradient(to right, rgb(255, 5, 222) , rgb(47, 34, 226));
+    box-shadow: 5px 5px 10px #9860f3;
+}
