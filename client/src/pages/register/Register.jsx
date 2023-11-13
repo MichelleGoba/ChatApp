@@ -14,7 +14,8 @@ import "./register.css";
 import { AuthContext } from "../../context/AuthContext";
 
 const Register = () => {
-  const {user} = useContext(AuthContext)  // this will return data that is in AuthContext
+  const { registerInfo, updateRegisterInfo } = useContext(AuthContext);
+
   return (
     <Container className="regCont">
       <Form className="regForm">
@@ -33,10 +34,10 @@ const Register = () => {
           <Row className="column">
             <Col xs={6} className="regCol">
               <Stack gap={3}>
-                <Form.Control type="text" placeholder="Username" className="inputField" />
-                <Form.Control type="email" placeholder="Email" className="inputField"/>
-                <Form.Control type="password" placeholder="Password" className="inputField"/>
-                <Form.Control type="password" placeholder="Confirm Password" className="inputField"/>
+                <Form.Control type="text" placeholder="Username" className="inputField" onChange={(e) => updateRegisterInfo({...registerInfo, username: e.target.value })}/>
+                <Form.Control type="email" placeholder="Email" className="inputField" onChange={(e) => updateRegisterInfo({...registerInfo, email: e.target.value })}/>
+                <Form.Control type="password" placeholder="Password" className="inputField" onChange={(e) => updateRegisterInfo({...registerInfo, password: e.target.value })}/>
+                <Form.Control type="password" placeholder="Confirm Password" className="inputField" onChange={(e) => updateRegisterInfo({...registerInfo, confirmPassword: e.target.value })}/>
                 <p>
                   Already have an account? <span>Log in</span>
                 </p>
