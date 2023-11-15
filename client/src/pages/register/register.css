@@ -1,68 +1,103 @@
-
-.regTitle{
-    text-align: center;
-    padding-top: 40px;
+.regTitle {
+  text-align: center;
+  padding-top: 40px;
+  color: navy;
 }
 
-
-.column{
-    display: flex;
-    height: 70vh;
-    padding: 50px;
+.column {
+  display: flex;
+  height: 70vh; 
+  padding: 50px;
+ 
 }
 
-.regBtn{
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-    padding-top: 30px;
+.regBtn {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
 }
 
-.logButton, .regButton{
-    padding: 10px;
-    width: 200px;
-    border-radius: 15px;
-    border: none;
-    box-shadow:   5px 10px 15px #c7c7c7;
-    font-size: 20px;
-}
-
-.regButton{
-    background-color: #E0BACF;
-    
-}
-
-.inputField{
-    height: 60px;
-    margin-top: 10px;
-    
-}
-
-.signUpBtn{
-   height: 50px; 
-   border-radius: 10px;
-   background-image: linear-gradient(to right, rgb(255, 5, 222) , rgb(47, 34, 226));
-   color: white;
+.logButton,
+.regButton {
+  padding: 10px;
+  width: 200px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 5px 10px 15px #c7c7c7;
   font-size: 20px;
+  color: navy;
 }
 
-.regCol.col-6 > div > p > span{
+.regButton {
+  background-color: #e0bacf;
+}
+
+.inputField {
+  height: 60px;
+  margin-top: 10px;
+  
+}
+
+.signUpBtn {
+  height: 50px;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 5, 222),
+    rgb(47, 34, 226)
+  );
+  color: white;
+  font-size: 20px;
+  
+}
+
+.regP span{
     color: rgb(218, 0, 218);
-} 
+}
+
+
 
 
 /* media quiries */
 
 @media (max-width: 767px) {
-    .logButton, .regButton{
-        width: 100px;
-        font-size: 16px;
-        }
-        .regP{
-            font-size: 12px;
-        }
-        .regImg{
-            display: none;
-        }
+  .logButton,
+  .regButton {
+    width: 100px;
+    font-size: 16px;
+  }
+  .regP {
+    font-size: 12px;
+  }
+  .regImg {
+    display: none;
+  }
+  .column {
+    height: 70vh;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .signUpBtn {
+    font-size: 18px;
+    height: 100%;
+  }
+  .container{
+   max-width: 90%;
+  }
+  .inputField {
+    height: 50px;
+    margin-top: 5px; 
+  }
+  .inputField::placeholder{
+    font-size: 14px;
+  }
+ 
+}
+
+@media (max-width:1024px){
+    .column{
+        height: 100%;
+    }
 }

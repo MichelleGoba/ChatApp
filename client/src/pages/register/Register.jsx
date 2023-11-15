@@ -31,7 +31,7 @@ const Register = () => {
 
           <Row className="column">
             <Col xs={12} md={6} className="regCol">
-              <Stack gap={3}>
+              <Stack gap={1}>
                 <Form.Control
                   type="text"
                   placeholder="Username"

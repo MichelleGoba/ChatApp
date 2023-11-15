@@ -1,31 +1,9 @@
-/* .logCont{
-    padding-top: 80px;
-    height: 100vh;
-
-}
-.logForm{
-    
-    height: 80vh;
-}
 .logTitle{
     text-align: center;
     padding-top: 40px;
+    color: navy;
 }
 
-
-.logRow{
-    border-top-left-radius:20px ;
-    border-top-right-radius:20px ;
-    border-bottom-left-radius:20px ;
-    border-bottom-right-radius:20px ;
-    box-shadow:   5px 10px 18px #888888; 
-}
-
-.column{
-    display: flex;
-    height: 70vh;
-    padding: 50px;
-}
 .logBtn{
     display: flex;
     gap: 30px;
@@ -41,8 +19,8 @@
     border: none;
     box-shadow:   5px 10px 15px #c7c7c7;
     font-size: 20px;
+    color: navy;
 }
-
 .logButton1{
     background-color: #E0BACF;
     
@@ -53,8 +31,11 @@
     margin-top: 10px;
     
 }
+.logP span {
+    color:  rgb(255, 5, 222) ;
+}
 
-.signUpBtn{
+.logInBtn{
    height: 50px; 
    border-radius: 10px;
    background-image: linear-gradient(to right, rgb(255, 5, 222) , rgb(47, 34, 226));
@@ -62,6 +43,33 @@
   font-size: 20px;
 }
 
-.logCol.col-6 > div > p > span{
-    color: rgb(218, 0, 218);
-} */
+@media (max-width: 767px){
+    .logImg{
+        display: none;
+    }
+    .logButton1, .regButton1{
+        width: 100px;
+    font-size: 16px;
+    }
+    
+    .inputField {
+        height: 50px;
+        margin-top: 5px; 
+      }
+      .inputField::placeholder{
+        font-size: 14px;
+      }
+      .logP{
+        font-size: 14px;
+      }
+      .signUpBtn {
+        font-size: 18px;
+        height: 100%;
+      }
+      .logInBtn{
+        font-size: 18px;
+    height: 100%;
+      }
+
+     
+}

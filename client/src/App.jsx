@@ -12,7 +12,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 function App() {
   return (
   
-      <Container style={{ marginTop: "70px",borderBottomLeftRadius: "20px", borderBottomRightRadius: "20px",borderTopRightRadius: "20px",borderTopLeftRadius: "20px", boxShadow:"5px 10px 18px #888888", height: "80vh"}}> 
+      <Container style={{ marginTop: "70px",borderBottomLeftRadius: "20px", borderBottomRightRadius: "20px",borderTopRightRadius: "20px",borderTopLeftRadius: "20px", boxShadow:"5px 10px 18px #888888"}}> 
         <Routes>
         <Route path="/" element={<Splash />} />
           
