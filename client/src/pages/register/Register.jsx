@@ -80,8 +80,10 @@ const Register = () => {
                   Already have an account? <span>Log in</span>
                 </p>
                 <button className="signUpBtn" type="submit">
+                  
                   {isRegisterLoading ? "Creating your account" : "Sign Up"}
                 </button>
+
                 {registerError?.error && (
                   <Alert variant="danger">
                     <p>{registerError?.message}</p>

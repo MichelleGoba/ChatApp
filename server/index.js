@@ -13,7 +13,9 @@ require("dotenv").config();
 
 // modular functions that add extra capability to the app
 app.use(express.json()); // this will allow to use json data - send and receive
-app.use(cors());
+// app.use(cors({origin: "http://localhost:5173" }))
+// // app.use(cors());
+
 app.use("/api/users", userRoute);
 
 
@@ -39,4 +41,5 @@ app.listen(port, (req, res) => {
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => console.log("MongoDB connection established")).catch((error) => console.log("MogoDB connection failed: ", error.message));
+}).then(() => console.log("MongoDB connection established"))
+.catch((error) => console.log("MogoDB connection failed: ", error.message));
