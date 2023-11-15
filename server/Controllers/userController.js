@@ -12,7 +12,7 @@ const createToken = (_id) => {
 
 const registerUser = async (req, res) => {
     try{
-        const { name, email, password } = req.body
+        const { name, username, email, password, confirmPassword, } = req.body
 
     // check if a user already exist in the database
     let user = await userModel.findOne({email});
@@ -21,7 +21,7 @@ const registerUser = async (req, res) => {
     if(user) return res.status(400).json("User with given email already exist...");
 
     // validation
-    if(!name || !email || !password) return res.status(400).json("All fields are required!");
+    if(!name || !username || !email || !password || !confirmPassword) return res.status(400).json("All fields are required!");
 
     // check if email is valid and i password is strong
     if(!validator.isEmail(email)) return res.status(400).json("email must be a valid email!");

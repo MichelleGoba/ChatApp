@@ -1,30 +1,56 @@
 import { createContext, useCallback, useState } from "react";
+import { baseUrl, postRequest } from "../utils/services";
 
 export const AuthContext = createContext();
 
 // provider component with data
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-
-//   form information
-const [registerInfo, setRegisterInfo] = useState({
+  const [registerError, setRegisterError] = useState(null); // handling error when registering the user
+  const [isRegisterLoading, setIsRegisterLoading] = useState(false ); 
+  const [registerInfo, setRegisterInfo] = useState({
+    //   form information
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
-});
+  });
 
-console.log("registerInfo", registerInfo)
+  // register a user
+  console.log("registerInfo", registerInfo);
 
-const updateRegisterInfo = useCallback((info) =>{
+  const updateRegisterInfo = useCallback((info) => {
     setRegisterInfo(info);
-}, [])
+  }, []);
+
+//   function to register a user
+const registerUser = useCallback(async(e) => {
+    e.preventDefault();
+
+    setIsRegisterLoading(true)
+    setRegisterError(null)
+
+    const response = await postRequest(`${baseUrl}/users/regiser`, JSON.stringify(registerInfo));
+
+    setIsRegisterLoading(false)
+
+    if(response.error){
+        return setRegisterError(response);
+    } 
+
+    localStorage.setItem("User", JSON.setRegisterLoading(response))
+    setUser(response)
+    
+}, [registerInfo])
   return (
     <AuthContext.Provider
       value={{
         user,
         registerInfo,
         updateRegisterInfo,
+        registerUser,
+        registerError,
+        isRegisterLoading
       }}
     >
       {children}

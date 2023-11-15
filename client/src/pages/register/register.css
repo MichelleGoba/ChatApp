@@ -1,32 +1,16 @@
-.regCont{
-    padding-top: 80px;
-    height: 100vh;
-    
-    
-}
-.regForm{
-    
-    height: 80vh;
-}
+
 .regTitle{
     text-align: center;
     padding-top: 40px;
 }
 
 
-.regRow{
-    border-top-left-radius:20px ;
-    border-top-right-radius:20px ;
-    border-bottom-left-radius:20px ;
-    border-bottom-right-radius:20px ;
-    box-shadow:   5px 10px 18px #888888; 
-}
-
 .column{
     display: flex;
     height: 70vh;
     padding: 50px;
 }
+
 .regBtn{
     display: flex;
     gap: 30px;
@@ -65,4 +49,20 @@
 
 .regCol.col-6 > div > p > span{
     color: rgb(218, 0, 218);
+} 
+
+
+/* media quiries */
+
+@media (max-width: 767px) {
+    .logButton, .regButton{
+        width: 100px;
+        font-size: 16px;
+        }
+        .regP{
+            font-size: 12px;
+        }
+        .regImg{
+            display: none;
+        }
 }
