@@ -3,7 +3,7 @@ const { registerUser, loginUser, findUser, getUsers } = require("../Controllers/
 
 const router = express.Router();
 
-// registration route
+// route API
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/find/:userId", findUser);

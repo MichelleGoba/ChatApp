@@ -1,4 +1,4 @@
-/* .splashCont{
+.splashCont{
     padding-top: 80px;
     height: 100vh;
   
@@ -51,4 +51,4 @@ h3{
     font-size: 20px;
     background-image: linear-gradient(to right, rgb(255, 5, 222) , rgb(47, 34, 226));
     box-shadow: 5px 5px 10px #9860f3;
-} */
+} 

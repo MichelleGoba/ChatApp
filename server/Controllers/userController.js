@@ -12,7 +12,8 @@ const createToken = (_id) => {
 
 const registerUser = async (req, res) => {
     try{
-        const { name, username, email, password, confirmPassword, } = req.body
+        const { username, email, password, confirmPassword, } = req.body
+        // const { username, email, password } = req.body
 
     // check if a user already exist in the database
     let user = await userModel.findOne({email});
@@ -21,7 +22,8 @@ const registerUser = async (req, res) => {
     if(user) return res.status(400).json("User with given email already exist...");
 
     // validation
-    if(!name || !username || !email || !password || !confirmPassword) return res.status(400).json("All fields are required!");
+    if(!username || !email || !password || !confirmPassword) return res.status(400).json("All fields are required!");
+    // if(!username || !email || !password ) return res.status(400).json("All fields are required!");
 
     // check if email is valid and i password is strong
     if(!validator.isEmail(email)) return res.status(400).json("email must be a valid email!");
@@ -29,7 +31,7 @@ const registerUser = async (req, res) => {
 
 
     // create user
-    user = new userModel({name, email, password})
+    user = new userModel({ username, email, password, confirmPassword })
 
     // hide/hash password
     const salt = await bcrypt.genSalt(10)
@@ -41,7 +43,7 @@ const registerUser = async (req, res) => {
     const token = createToken(user._id)
 
     // send data to client
-    res.status(200).json({ _id: user._id, name, email, token })
+    res.status(200).json({ _id: user._id,  email, token })
     }catch(error){
         console.log(error);
         res.status(500).json(error);

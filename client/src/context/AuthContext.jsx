@@ -13,18 +13,19 @@ export const AuthContextProvider = ({ children }) => {
     username: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword: ""
   });
 
   // register a user
   console.log("registerInfo", registerInfo);
+  console.log("registerError", registerError);
 
   const updateRegisterInfo = useCallback((info) => {
     setRegisterInfo(info);
   }, []);
 
   //   function to register a user
-  const registerUser = useCallback(async (e) => {
+  const registerUser = useCallback(async(e) => {
     e.preventDefault();
     setIsRegisterLoading(true)
     setRegisterError(null)
@@ -33,14 +34,14 @@ export const AuthContextProvider = ({ children }) => {
 
     setIsRegisterLoading(false)
 
-    if (response.error) {
-              return setRegisterError(response);
-           }
+    if(response.error){
+      return setRegisterError(response);
+    }
 
-    // get the user back whenever the browser is refreshed
-    localStorage.setItem("User", JSON.stringify(response));
-    setUser(response)   
-  }, []);
+     // save user to local storage
+     localStorage.setItem("User", JSON.stringify(response))
+     setUser(response)
+  }, [registerInfo]);
 
   return (
     <AuthContext.Provider

@@ -10,12 +10,20 @@ const app = express();
 // configure env package
 require("dotenv").config();
 
+app.use((req, res, next) => {
+    console.log('Request Body:', req.body);
+    next();
+});
+
+app.use(cors());
 
 // modular functions that add extra capability to the app
 app.use(express.json()); // this will allow to use json data - send and receive
 // app.use(cors({origin: "http://localhost:5173" }))
-// // app.use(cors());
+// app.use(cors());
 
+
+// Routes
 app.use("/api/users", userRoute);
 
 
@@ -25,6 +33,7 @@ app.use("/api/users", userRoute);
 app.get("/", (req, res) => {
     res.send("Welcome to our chat app APIs...");
 });
+
 
 // req when receiving data and res to send data to fron end
 
@@ -38,8 +47,10 @@ app.listen(port, (req, res) => {
 
 
 // use mongoose to connect to the mongooseDB
+
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log("MongoDB connection established"))
 .catch((error) => console.log("MogoDB connection failed: ", error.message));
+
