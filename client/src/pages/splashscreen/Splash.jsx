@@ -5,7 +5,15 @@ import { Link } from "react-router-dom";
 
 const Splash = () => {
     return (
-        <Container className="splashCont">
+        <Container className="splashCont"
+        style={{
+            marginTop: "70px",
+            borderBottomLeftRadius: "20px",
+            borderBottomRightRadius: "20px",
+            borderTopRightRadius: "20px",
+            borderTopLeftRadius: "20px",
+            boxShadow: "5px 10px 18px #888888",
+          }}>
             <div className="backgroundImg">
                 <h2>Chat App</h2>
                 <div className="splashImg">

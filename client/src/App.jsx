@@ -11,27 +11,22 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 
 function App() {
   return (
-  
-      <Container style={{ marginTop: "70px",borderBottomLeftRadius: "20px", borderBottomRightRadius: "20px",borderTopRightRadius: "20px",borderTopLeftRadius: "20px", boxShadow:"5px 10px 18px #888888"}}> 
-        <Routes>
+    <Container>
+      <Routes>
         <Route path="/" element={<Splash />} />
-          
+
         <Route path="/splash" element={<Splash />} />
-        
+
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-          {/* <Route path="/" element={<Chat />} />
+        {/* <Route path="/" element={<Chat />} />
          
           
           <Route path="/splash" element={<Splashscreen />} /> */}
-          <Route path="*" element={<Navigate to="/" />} />
-          
-        </Routes>
-      </Container>
- 
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Container>
   );
 }
 
 export default App;
-
-

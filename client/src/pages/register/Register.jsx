@@ -17,7 +17,14 @@
 
 
    return (
-     <Container className="regCont">
+     <Container className="regCont" style={{
+      marginTop: "70px",
+      borderBottomLeftRadius: "20px",
+      borderBottomRightRadius: "20px",
+      borderTopRightRadius: "20px",
+      borderTopLeftRadius: "20px",
+      boxShadow: "5px 10px 18px #888888",
+    }}>
        <Form className="regForm" onSubmit={registerUser}>
         <div className="regRow">
           <h2 className="regTitle">Chat App</h2>
@@ -90,6 +97,7 @@
                      <p>{registerError?.message}</p>
                    </Alert>
                  )}
+                 <Link to={"/splash"}><p className="exit">Exit</p></Link>
                </Stack>
              </Col>
 

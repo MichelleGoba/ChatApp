@@ -13,7 +13,14 @@ import "./login.css";
 
 const Register = () => {
   return (
-    <Container className="logCont">
+    <Container className="logCont" style={{
+      marginTop: "70px",
+      borderBottomLeftRadius: "20px",
+      borderBottomRightRadius: "20px",
+      borderTopRightRadius: "20px",
+      borderTopLeftRadius: "20px",
+      boxShadow: "5px 10px 18px #888888",
+    }}>
       <Form className="logForm">
         <div className="logRow">
           <h2 className="logTitle">Chat App</h2>
