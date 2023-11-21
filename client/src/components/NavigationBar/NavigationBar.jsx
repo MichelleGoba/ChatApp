@@ -9,7 +9,9 @@ import { AuthContext } from "../../context/AuthContext";
 const NavigationBar = () => {
     const {user, logoutUser} =useContext(AuthContext)
     return <>
-         <h3>Logged in as {user?.username} </h3>
+         
+           {user && <h3><span> Logged in as {user?.username} </span> </h3>}
+
             <Stack direction="horizontal" gap={4}>
                 {user ? (
                     <Link onClick={() => logoutUser()} to="/login">
