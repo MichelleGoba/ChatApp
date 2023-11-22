@@ -41,6 +41,17 @@
            <Row className="column">
              <Col xs={12} md={6} className="regCol">
                <Stack gap={1}>
+               <Form.Control
+                   type="email"
+                  placeholder="Email"
+                   className="inputField"
+                   onChange={(e) =>
+                     updateRegisterInfo({
+                       ...registerInfo,
+                       email: e.target.value,
+                     })
+                   }
+                 />
                  <Form.Control
                    type="text"
                    placeholder="Username"
@@ -52,17 +63,7 @@
                      })
                    }
                  />
-                 <Form.Control
-                   type="email"
-                  placeholder="Email"
-                   className="inputField"
-                   onChange={(e) =>
-                     updateRegisterInfo({
-                       ...registerInfo,
-                       email: e.target.value,
-                     })
-                   }
-                 />
+              
                  <Form.Control
                    type="password"
                    placeholder="Password"

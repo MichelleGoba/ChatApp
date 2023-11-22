@@ -13,7 +13,7 @@ const Login = () => {
     updateLoginInfo,
     isLoginLoading,
   } = useContext(AuthContext);
-  
+
   return (
     <Container
       className="logCont"
@@ -48,6 +48,15 @@ const Login = () => {
                   className="inputField"
                   onChange={(e) =>
                     updateLoginInfo({ ...loginInfo, email: e.target.value })
+                  }
+                />
+                <Form.Control
+                  type="text"
+                  id = "username"
+                  placeholder="Username"
+                  className="inputField"
+                  onChange={(e) =>
+                    updateLoginInfo({ ...loginInfo, username: e.target.value })
                   }
                 />
 
