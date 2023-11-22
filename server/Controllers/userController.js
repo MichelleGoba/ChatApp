@@ -66,9 +66,9 @@ const loginUser = async (req, res) => {
     if (!isValidPassword)
       return res.status(400).json("Invalid email or password!");
 
-    // if the password is corect, send these details
+    // if the password is correct, send these details
     const token = createToken(user._id);
-    res.status(200).json({ _id: user._id, name: uder.name, email, username, token });
+    res.status(200).json({ _id: user._id, name: user.name, email, token });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

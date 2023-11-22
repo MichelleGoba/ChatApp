@@ -1,27 +1,32 @@
-import {
-  Alert,
-  Form,
-  Row,
-  Col,
-  Stack,
-  Container,
-} from "react-bootstrap";
+import { Alert, Form, Row, Col, Stack, Container } from "react-bootstrap";
 import LoginImg from "../../assets/Images/signup.png";
 import { Link } from "react-router-dom";
 import "./login.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
-
-const Register = () => {
+const Login = () => {
+  const {
+    loginUser,
+    loginError,
+    loginInfo,
+    updateLoginInfo,
+    isLoginLoading,
+  } = useContext(AuthContext);
+  
   return (
-    <Container className="logCont" style={{
-      marginTop: "70px",
-      borderBottomLeftRadius: "20px",
-      borderBottomRightRadius: "20px",
-      borderTopRightRadius: "20px",
-      borderTopLeftRadius: "20px",
-      boxShadow: "5px 10px 18px #888888",
-    }}>
-      <Form className="logForm">
+    <Container
+      className="logCont"
+      style={{
+        marginTop: "70px",
+        borderBottomLeftRadius: "20px",
+        borderBottomRightRadius: "20px",
+        borderTopRightRadius: "20px",
+        borderTopLeftRadius: "20px",
+        boxShadow: "5px 10px 18px #888888",
+      }}
+    >
+      <Form className="logForm" onSubmit={loginUser}>
         <div className="logRow">
           <h2 className="logTitle">Chat App</h2>
           <div className="logBtn">
@@ -36,14 +41,28 @@ const Register = () => {
           <Row className="column">
             <Col xs={12} md={6} className="logCol">
               <Stack gap={3}>
-                <Form.Control type="text" placeholder="Username" className="inputField" />
-                
-                <Form.Control type="password" placeholder="Password" className="inputField"/>
-                
+                <Form.Control
+                  type="text"
+                  id = "email"
+                  placeholder="Email"
+                  className="inputField"
+                  onChange={(e) =>
+                    updateLoginInfo({ ...loginInfo, email: e.target.value })
+                  }
+                />
+
+                <Form.Control
+                  type="password"
+                  id = "password"
+                  placeholder="Password"
+                  className="inputField" onChange={(e) => updateLoginInfo({...loginInfo, password: e.currentTarget.value})}
+                  
+                />
+
                 <p className="logP">
                   Forgot password? <span>Retrieve</span>
                 </p>
-                <button className="logInBtn">Sign Up</button>
+                <button className="logInBtn">Login</button>
                 <Alert variant="danger">
                   <p>Errorr message</p>
                 </Alert>
@@ -60,4 +79,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
