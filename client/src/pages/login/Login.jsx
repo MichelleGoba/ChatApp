@@ -71,10 +71,12 @@ const Login = () => {
                 <p className="logP">
                   Forgot password? <span>Retrieve</span>
                 </p>
-                <button className="logInBtn">Login</button>
-                <Alert variant="danger">
-                  <p>Errorr message</p>
-                </Alert>
+                <button className="logInBtn" type="submit">{isLoginLoading? "Getting you in" : "Login"}</button>
+
+                {loginError?.error &&  <Alert variant="danger">
+                  <p>{loginError?.message}</p>
+                </Alert> }
+               
               </Stack>
             </Col>
 
