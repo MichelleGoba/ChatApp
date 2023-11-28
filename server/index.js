@@ -27,6 +27,7 @@ app.use(express.json()); // this will allow to use json data - send and receive
 // Routes
 app.use("/api/users", userRoute);
 app.use("/api/chats", chatRoute)
+app.use("/api/messages", messageRoute)
 
 // CRUD operation - Create read update delete
 // post data - get data from the front end and receive it using app.post
