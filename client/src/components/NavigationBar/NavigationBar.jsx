@@ -8,11 +8,11 @@ const NavigationBar = () => {
   const { user, logoutUser } = useContext(AuthContext);
   return (
     <>
-      {user && (
+      {/* {user && (
         <h3>
           <span> Logged in as {user?.username} </span>{" "}
         </h3>
-      )}
+      )} */}
 
       <Stack direction="horizontal" gap={4}>
         {user ? (

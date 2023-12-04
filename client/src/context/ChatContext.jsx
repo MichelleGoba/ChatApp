@@ -9,25 +9,24 @@ export const ChatContextProvider = ({ children, user }) => {
   const [userChatsError, setUserChatsError] = useState(null);
 
   useEffect(() => {
-        const getUserChats = async()=> {
-            if(user?._id){
-                setIsUserChatsLoading(true)
-                setUserChatsError(null);
+    const getUserChats = async () => {
+      if (user?._id) {
+        setIsUserChatsLoading(true);
+        setUserChatsError(null);
 
-                const response = await getRequest(`${baseUrl}/chats/${user?._id}`)
+        const response = await getRequest(`${baseUrl}/chats/${user?._id}`);
 
-                setIsUserChatsLoading(false)
+        setIsUserChatsLoading(false);
 
-                if(response.error){
-                    return setUserChatsError(response)
-                }
-
-                setUserChats(response)
-            }
+        if (response.error) {
+          return setUserChatsError(response);
         }
-        getUserChats()
-  }, [user])
 
+        setUserChats(response);
+      }
+    };
+    getUserChats();
+  }, [user]);
 
   return (
     <ChatContext.Provider
