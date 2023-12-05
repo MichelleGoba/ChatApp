@@ -11,7 +11,7 @@ export const useFetchRecipientUser = (chat, user) => {
     console.log("chat", chat);
 
     useEffect(() =>{
-        const gettUser = async() =>{
+        const getUser = async() =>{
 
             if(!recipientId) return null
 
@@ -23,7 +23,7 @@ export const useFetchRecipientUser = (chat, user) => {
 
             setRecipientUser(response)
         }
-        gettUser()
+        getUser()
     }, []);
 
     return {recipientUser}

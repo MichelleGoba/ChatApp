@@ -1,10 +1,20 @@
-import { Stack } from "react-bootstrap";
+import { Container, Stack } from "react-bootstrap";
 import { useFetchRecipientUser } from "../../hooks/useFetchRecipient";
+import "./userChat.css"
 
 const UserChat = ({ chat, user }) => {
   const { recipientUser } = useFetchRecipientUser(chat, user);
+  console.log(recipientUser);
 
   return (
+    <Container className="userChatCont" style={{
+        marginTop: "70px",
+        borderBottomLeftRadius: "20px",
+        borderBottomRightRadius: "20px",
+        borderTopRightRadius: "20px",
+        borderTopLeftRadius: "20px",
+        boxShadow: "5px 10px 18px #888888",
+      }}>
     <Stack
       direction="horizontal"
       gap={3}
@@ -15,7 +25,7 @@ const UserChat = ({ chat, user }) => {
       <div className="d-flex">
         <div className="me-2">A</div>
         <div className="text-content">
-          <div className="name">{recipientUser?.username}</div>
+          <div className="name">{recipientUser?.Username}</div>
           <div className="text">Text Message</div>
         </div>
       </div>
@@ -24,8 +34,10 @@ const UserChat = ({ chat, user }) => {
             12/12/2022
         </div>
         <div className="this-user-notifications">2</div>
+        <span className="user-online"></span>
       </div>
     </Stack>
+    </Container>
   );
 };
 

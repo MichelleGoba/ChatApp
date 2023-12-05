@@ -52,7 +52,7 @@ const registerUser = async (req, res) => {
 
 // login a user
 const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, username, password } = req.body;
 
   // find the user from the database
   try {
@@ -68,7 +68,7 @@ const loginUser = async (req, res) => {
 
     // if the password is correct, send these details
     const token = createToken(user._id);
-    res.status(200).json({ _id: user._id, name: user.name, email, token });
+    res.status(200).json({ _id: user._id, name: user.username, username, email, token });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
