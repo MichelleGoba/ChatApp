@@ -6,7 +6,6 @@ import Chats from "./pages/chats/Chats";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
-
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";

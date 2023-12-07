@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
   const [isRegisterLoading, setIsRegisterLoading] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({
     //   form information
-    username: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
   const [isLoginLoading, setIsLoginLoading] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
-    username: "",
+    name: "",
     password: "",
   });
 

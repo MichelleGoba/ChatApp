@@ -52,11 +52,11 @@ const Login = () => {
                 />
                 <Form.Control
                   type="text"
-                  id = "username"
-                  placeholder="Username"
+                  id = "name"
+                  placeholder="name"
                   className="inputField"
                   onChange={(e) =>
-                    updateLoginInfo({ ...loginInfo, username: e.target.value })
+                    updateLoginInfo({ ...loginInfo, name: e.target.value })
                   }
                 />
 

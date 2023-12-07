@@ -7,14 +7,7 @@ const UserChat = ({ chat, user }) => {
   console.log(recipientUser);
 
   return (
-    <Container className="userChatCont" style={{
-        marginTop: "70px",
-        borderBottomLeftRadius: "20px",
-        borderBottomRightRadius: "20px",
-        borderTopRightRadius: "20px",
-        borderTopLeftRadius: "20px",
-        boxShadow: "5px 10px 18px #888888",
-      }}>
+    <Container >
     <Stack
       direction="horizontal"
       gap={3}
@@ -25,7 +18,7 @@ const UserChat = ({ chat, user }) => {
       <div className="d-flex">
         <div className="me-2">A</div>
         <div className="text-content">
-          <div className="name">{recipientUser?.Username}</div>
+          <div className="name">{recipientUser?.username}</div>
           <div className="text">Text Message</div>
         </div>
       </div>

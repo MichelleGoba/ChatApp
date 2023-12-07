@@ -54,12 +54,12 @@
                  />
                  <Form.Control
                    type="text"
-                   placeholder="Username"
+                   placeholder="name"
                    className="inputField"
                    onChange={(e) =>
                      updateRegisterInfo({
                        ...registerInfo,
-                       username: e.target.value,
+                       name: e.target.value,
                      })
                    }
                  />

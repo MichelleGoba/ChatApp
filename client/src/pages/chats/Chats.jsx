@@ -4,6 +4,7 @@ import { Container, Stack } from "react-bootstrap";
 import "./chats.css"
 import UserChat from "../../components/chat/UserChat";
 import { AuthContext } from "../../context/AuthContext";
+import PotentialChats from "../../components/chat/PotentialChats";
 
 const Chats = () => {
 
@@ -13,6 +14,7 @@ const Chats = () => {
 
  
   return <Container>
+    <PotentialChats/>
     {userChats?.length < 1 ? null : (
     <Stack direction="horizontal" gap={4} className="align-items-start">
         <Stack className="messages-box flex-grow-0" gap={3} >
