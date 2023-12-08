@@ -1,8 +1,4 @@
 // createChat
-// getUserChats
-// findChat
-
-// createChat
 const chatModel = require("../Models/chatModel");
 
 const createChat = async (req, res) => {
@@ -18,10 +14,10 @@ const createChat = async (req, res) => {
       members: [firstId, secondId],
     });
 
-    // save chat  the database and send it to front end
+    // save chat to the database and send it to front end
     const response = await newChat.save();
 
-    res.staus(200).jsn(response);
+    res.status(200).json(response);
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
@@ -37,7 +33,7 @@ const findUserChats = async (req, res) => {
       members: { $in: [userId] },
     });
 
-    // send chat to fron end
+    // send chat to front end
     res.status(200).json(chats);
   } catch (error) {
     console.log(error);
@@ -47,19 +43,19 @@ const findUserChats = async (req, res) => {
 
 // find chat
 const findChat = async (req, res) => {
-    const { firstId, secondId } = req.params
-  
-    try {
-      const chat = await chatModel.findOne({
-        members: { $all: [firstId, secondId] },
-      });
-  
-      // send chat to fron end
-      res.status(200).json(chat);
-    } catch (error) {
-      console.log(error);
-      res.status(500).json(error);
-    }
-  };
+  const { firstId, secondId } = req.params;
 
-  module.exports = {createChat, findUserChats, findChat};
+  try {
+    const chat = await chatModel.findOne({
+      members: { $all: [firstId, secondId] },
+    });
+
+    // send chat to front end
+    res.status(200).json(chat);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+};
+
+module.exports = { createChat, findUserChats, findChat };

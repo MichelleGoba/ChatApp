@@ -28,6 +28,7 @@ export const postRequest = async (url, body) => {
   return data;
 };
 
+// function to perform get request
 export const getRequest = async (url) => {
   const response = await fetch(url);
 
