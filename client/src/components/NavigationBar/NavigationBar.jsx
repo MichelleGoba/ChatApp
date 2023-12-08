@@ -8,27 +8,31 @@ const NavigationBar = () => {
   const { user, logoutUser } = useContext(AuthContext);
   return (
     <>
-      {/* {user && (
+    {/* {user && (
         <h3>
-          <span> Logged in as {user?.username} </span>{" "}
+          <span> Logged in as {user?.name} </span>{" "}
         </h3>
-      )} */}
-
+      )}  */}
+     
       <Stack direction="horizontal" gap={4}>
-        {user ? (
+        {user &&  (
+          <>
           <Link onClick={() => logoutUser()} to="/login">
             <div>Logout</div>
           </Link>
-        ) : (
-          <>
-            <Link to="/login">
-              <div>Log In</div>
-            </Link>
-            <Link to="/register">
-              <div>Sign Up</div>
-            </Link>
-          </>
+         </>
         )}
+          {!user && (
+             <>
+             <Link to="/login">
+               <div>Log In</div>
+             </Link>
+             <Link to="/register">
+               <div>Sign Up</div>
+             </Link>
+           </>
+          )}
+         
       </Stack>
     </>
   );

@@ -10,22 +10,25 @@ export const AuthContextProvider = ({ children }) => {
   const [isRegisterLoading, setIsRegisterLoading] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({
     //   form information
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
-  const [loginError, setLoginError] = useState(null); // handling error when registering the user
+  console.log("registerInfo", registerInfo);
+
+  const [loginError, setLoginError] = useState(null);
   const [isLoginLoading, setIsLoginLoading] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
+    username: "",
     email: "",
-    name: "",
     password: "",
   });
 
-  console.log("User", user);
+  console.log("Userr", user);
   console.log("loginInfo", loginInfo);
+
 
   useEffect(() => {
     const user = localStorage.getItem("User");

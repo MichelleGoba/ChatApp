@@ -11,7 +11,7 @@ const createToken = (_id) => {
 
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password, confirmPassword } = req.body;
+    const { username, email, password, confirmPassword } = req.body;
 
     // check if a user already exist in the database
     let user = await userModel.findOne({ email });
@@ -21,9 +21,9 @@ const registerUser = async (req, res) => {
       return res.status(400).json("User with given email already exist...");
 
     // validation
-    if (!name || !email || !password || !confirmPassword)
+    if (!username || !email || !password || !confirmPassword)
       return res.status(400).json("All fields are required!");
-    if (!name)
+    if (!username)
       return res.status(400).json("Name is required!");
       if (!email)
       return res.status(400).json("Email is required!");
@@ -39,7 +39,7 @@ const registerUser = async (req, res) => {
       return res.status(400).json("Password must be a stong password!");
 
     // create user
-    user = new userModel({ name, email, password, confirmPassword });
+    user = new userModel({ username, email, password, confirmPassword });
 
     // hide/hash password
     const salt = await bcrypt.genSalt(10);
@@ -50,8 +50,8 @@ const registerUser = async (req, res) => {
 
     const token = createToken(user._id);
 
-    // send data to client
-    res.status(200).json({ _id: user._id, name, email, token });
+    // send data to client - include the name property in the response
+    res.status(200).json({ _id: user._id, username: user.username, email, token });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
@@ -76,7 +76,8 @@ const loginUser = async (req, res) => {
 
     // if the password is correct, send these details
     const token = createToken(user._id);
-    res.status(200).json({ _id: user._id, name: user.name, email, token });
+
+    res.status(200).json({ _id: user._id, username: user.username, email, token });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

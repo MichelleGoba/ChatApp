@@ -28,6 +28,7 @@
        <Form className="regForm" onSubmit={registerUser}>
         <div className="regRow">
           <h2 className="regTitle">Chat App</h2>
+     
 
           <div className="regBtn">
              <Link to="/login">
@@ -54,12 +55,12 @@
                  />
                  <Form.Control
                    type="text"
-                   placeholder="name"
+                   placeholder="Username"
                    className="inputField"
                    onChange={(e) =>
                      updateRegisterInfo({
                        ...registerInfo,
-                       name: e.target.value,
+                       username: e.target.value,
                      })
                    }
                  />
