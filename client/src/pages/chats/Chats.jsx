@@ -8,7 +8,10 @@ const Chats = () => {
 
   console.log("UserChats", userChats);
 
-  return <>Chat</>;
+  return <Container>{userChats?.length < 1 ? null : <Stack>
+    <Stack>List</Stack>
+    <p>Chat Box</p>
+    </Stack>}</Container>;
 };
 
 export default Chats;
