@@ -8,54 +8,53 @@ const createChat = async (req, res) => {
     const chat = await chatModel.findOne({
       members: { $all: [firstId, secondId] },
     });
+
     if (chat) return res.status(200).json(chat);
 
     const newChat = new chatModel({
       members: [firstId, secondId],
     });
-
-    // save chat to the database and send it to front end
-    const response = await newChat.save();
+    const response = await newChat.save()
 
     res.status(200).json(response);
+
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
   }
 };
 
-// findUserChats
-const findUserChats = async (req, res) => {
-  const userId = req.params.userId;
+// getUserChats
+const findUserChats = async(req, res) =>{
+    const userId = req.params.userId;
+    try{
+        const chats = await chatModel.find({
+            members: {$in:[userId]}
 
-  try {
-    const chats = await chatModel.find({
-      members: { $in: [userId] },
-    });
+        })
+        res.status(200).json(chats)
 
-    // send chat to front end
-    res.status(200).json(chats);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json(error);
-  }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+}
 };
 
-// find chat
-const findChat = async (req, res) => {
-  const { firstId, secondId } = req.params;
+// findChat
+const findChat = async(req, res) =>{
+    const {firstId, secondId} = req.params;
+    try{
+        const chat = await chatModel.findOne({
+            members: {$all:[firstId, secondId]}
 
-  try {
-    const chat = await chatModel.findOne({
-      members: { $all: [firstId, secondId] },
-    });
+        })
+        res.status(200).json(chat);
 
-    // send chat to front end
-    res.status(200).json(chat);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json(error);
-  }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+}
 };
 
-module.exports = { createChat, findUserChats, findChat };
+module.exports = {createChat, findUserChats, findChat}
+
