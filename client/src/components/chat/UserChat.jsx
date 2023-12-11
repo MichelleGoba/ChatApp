@@ -1,6 +1,7 @@
 import { Container, Stack } from "react-bootstrap";
 import { useFetchRecipientUser } from "../../hooks/useFetchRecipient";
 import "./userChat.css";
+import profile from "../../assets/Images/profile.svg"
 
 const UserChat = ({ chat, user }) => {
   const { recipientUser } = useFetchRecipientUser(chat, user);
@@ -14,9 +15,12 @@ const UserChat = ({ chat, user }) => {
        className="user-card align-items-center"
        p-2="true"
        justify-content-between="true"
+       role="button"
      >
       <div className="d-flex">
-         <div className="me-2">image</div>
+         <div className="me-2">
+          <img src={profile} height="35px"/>
+         </div>
          <div className="text-content">
            <div className="name">{recipientUser?.username}</div>
            <div className="text">Text Message</div>
