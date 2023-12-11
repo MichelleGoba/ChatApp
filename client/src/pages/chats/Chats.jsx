@@ -3,21 +3,12 @@ import { ChatContext } from "../../context/ChatContext";
 import { Container, Stack } from "react-bootstrap";
 
 const Chats = () => {
-//   const {userChats, isUserChatsLoading, userChatsError } = useContext(ChatContext);
+  const { userChats, isUserChatsLoading, userChatsError } =
+    useContext(ChatContext);
 
-//   console.log("UserChats", userChats);
+  console.log("UserChats", userChats);
 
-//   return <Container>
-//     {userChats?.length < 1 ? null : (
-//       <Stack>
-//       <Stack>List</Stack>
-//       <p>Chat Box</p>
-//       </Stack>
-//     )}
-   
-//     </Container>;
-// };
-}
- 
+  return <>Chat</>;
+};
+
 export default Chats;
-        

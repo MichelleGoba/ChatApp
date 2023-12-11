@@ -4,6 +4,7 @@ const cors = require("cors"); // allow front end communication
 const mongoose = require("mongoose");
 const userRoute = require("./Routes/userRoute");
 const chatRoute = require("./Routes/chatRoute");
+const messageRoute = require("./Routes/messageRoute");
 
 // object which will have various methods that will be used to create the chat app
 const app = express();
@@ -26,6 +27,8 @@ app.use(express.json()); // this will allow to use json data - send and receive
 // Routes
 app.use("/api/users", userRoute);
 app.use("/api/chats", chatRoute);
+app.use("/api/messages", messageRoute);
+
 
 
 
