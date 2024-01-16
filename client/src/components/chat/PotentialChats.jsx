@@ -6,7 +6,7 @@ import { useContext } from "react";
 const PotentialChats = () => {
     const {user} = useContext(AuthContext)
     const {potentialChats, createChat} = useContext(ChatContext);
-    console.log("PotentialChats", potentialChats);
+   
 
     return ( <>
     <div className="all-users" >
@@ -20,6 +20,7 @@ const PotentialChats = () => {
             )  
         })}
     </div>
+
     </> );
 }
  
