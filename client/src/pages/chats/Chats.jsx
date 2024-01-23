@@ -5,6 +5,8 @@ import UserChat from "../../components/chat/UserChat";
 import { AuthContext } from "../../context/AuthContext";
 import PotentialChats from "../../components/chat/PotentialChats";
 import "../../components/chat/userChat.css";
+import ChatBox from "../../components/chat/chatBox";
+import "./chats.css"
 
 const Chats = () => {
   const { user } = useContext(AuthContext);
@@ -16,7 +18,7 @@ const Chats = () => {
       <PotentialChats />
       {userChats?.length < 1 ? null : (
         <Stack direction="horizontal" gap={5} className="align-items-start">
-          <Stack className="messages-box flex-grow-0 pe-3" gap={3}></Stack>
+          <Stack className="messages-box flex-grow-0 pe-3" gap={3}>
           {isUserChatsLoading && <p>Loading chats...</p>}
           {userChats?.map((chat, index) => {
             return (
@@ -25,7 +27,8 @@ const Chats = () => {
               </div>
             );
           })}
-          <p>Chat Box</p>
+           </Stack>
+          <ChatBox/>
         </Stack>
       )}
     </Container>

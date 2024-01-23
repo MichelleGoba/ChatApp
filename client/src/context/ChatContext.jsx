@@ -13,6 +13,7 @@ export const ChatContextProvider = ({ children, user }) => {
   const [isMessageLoading, setIsMessageLoading] = useState(false);
   const [messageError, setMessageError] = useState(null);
 
+  console.log("messages", messages);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -31,7 +32,6 @@ export const ChatContextProvider = ({ children, user }) => {
             return chat.members[0] === u._id || chat.members[1] === u._id;
           });
         }
-
         return !isChatCreated;
       });
 
@@ -40,50 +40,47 @@ export const ChatContextProvider = ({ children, user }) => {
     getUsers();
   }, [userChats]);
 
-  useEffect(() => {
-    const getUserChats = async () => {
-      if (user?._id) {
-        setIsUserChatsLoading(true);
-        setUserChatsError(null);
-        const response = await getRequest(`${baseUrl}/chats/${user?._id}`);
+  // useEffect(() => {
+  //   const getUserChats = async () => {
+  //     if (user?._id) {
+  //       setIsUserChatsLoading(true);
+  //       setUserChatsError(null);
+  //       const response = await getRequest(`${baseUrl}/chats/${user?._id}`);
 
-        setIsUserChatsLoading(false);
+  //       setIsUserChatsLoading(false);
 
-        if (response.error) {
-          return setUserChatsError(response);
-        }
+  //       if (response.error) {
+  //         return setUserChatsError(response);
+  //       }
 
-        setUserChats(response);
-      }
-    };
-    getUserChats();
-  }, [user]);
+  //       setUserChats(response);
+  //     }
+  //   };
+  //   getUserChats();
+  // }, [user]);
 
+  // useEffect(() => {
+  //   const getMessages = async () => {
+  //     setIsMessageLoading(true);
+  //     setMessageError(null);
 
-  useEffect(() => {
-    const getMessages = async () => {
-      setIsMessageLoading(true);
-      setMessageError(null);
+  //     const response = await getRequest(`${baseUrl}/messages/${currentChat?._id}`);
 
-      const response = await getRequest(`${baseUrl}/messages/${currentChat?._id}`);
+  //       setIsMessageLoading(false);
 
-        setIsMessageLoading(false);
+  //       if (response.error) {
+  //         return setMessageError(response);
+  //       }
 
-        if (response.error) {
-          return setMessageError(response);
-        }
+  //       setMessages(response);
 
-        setMessages(response);
-    
-    };
-    getMessages();
-  }, [user]);
+  //   };
+  //   getMessages();
+  // }, [currentChat]);
 
-  
-
-  const updateCurrentChat = useCallback((chat) =>{
+  const updateCurrentChat = useCallback((chat) => {
     setCurrenChat(chat);
-  }, [])
+  }, []);
 
   const createChat = useCallback(async (firstId, secondId) => {
     const response = await postRequest(
@@ -92,13 +89,14 @@ export const ChatContextProvider = ({ children, user }) => {
         firstId,
         secondId,
       })
-      
     );
-    if(response.error){
+    if (response.error) {
       return console.log("Error creating chat", response);
     }
-    setUserChats((prev) => [...prev, response])
+    // setUserChats((prev) => [...prev, response]);
+    setUserChats((prev) => [...(prev || []), response]);
   }, []);
+  
   return (
     <ChatContext.Provider
       value={{
@@ -108,6 +106,9 @@ export const ChatContextProvider = ({ children, user }) => {
         potentialChats,
         createChat,
         updateCurrentChat,
+        messages,
+        isMessageLoading,
+        messageError,
       }}
     >
       {children}
