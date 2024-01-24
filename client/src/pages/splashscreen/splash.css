@@ -19,11 +19,11 @@ h2 {
 
 h3 {
   text-align: center;
-  padding-top: 50px;
+  /* padding-top: 50px; */
 }
 .splashBtn {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 .splashButton {
   width: 300px;
@@ -44,4 +44,5 @@ h3 {
   .splashImg {
     display: none;
   }
+  
 }
