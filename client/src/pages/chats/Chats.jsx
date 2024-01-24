@@ -5,8 +5,8 @@ import UserChat from "../../components/chat/UserChat";
 import { AuthContext } from "../../context/AuthContext";
 import PotentialChats from "../../components/chat/PotentialChats";
 import "../../components/chat/userChat.css";
-import Messenger from "../../components/chat/Messenger";
 import "./chats.css"
+
 
 const Chats = () => {
   const { user } = useContext(AuthContext);
@@ -14,7 +14,9 @@ const Chats = () => {
     useContext(ChatContext);
 
   return (
+   
     <Container>
+     
       <PotentialChats />
       {userChats?.length < 1 ? null : (
         <Stack direction="horizontal" gap={5} className="align-items-start">
@@ -28,7 +30,7 @@ const Chats = () => {
             );
           })}
            </Stack>
-         <Messenger/>
+       
         </Stack>
       )}
     </Container>

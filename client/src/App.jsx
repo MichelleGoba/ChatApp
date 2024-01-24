@@ -24,6 +24,7 @@ function App() {
         <Route path="/register" element={ user ? <Chats/> : <Register />} />
         <Route path="/login" element={ user ? <Chats/> : <Login />} />
         <Route path="/chats" element={ user ? <Chats /> : <Login/> } />
+        
         {/* 
          
           
