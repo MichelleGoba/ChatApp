@@ -12,14 +12,14 @@ const ChatBox = () => {
 
   if (!recipientUser)
     return (
-      <p >
+      <p style={{ textAlign: "center", width: "100%", color: "red" }}>
         No conversation selected...
       </p>
     );
 
   if (isMessagesLoading)
     return (
-      <p >
+      <p style={{ textAlign: "center", width: "100%", color: "red" }}>
         Loading Chat...
       </p>
     );
@@ -27,14 +27,14 @@ const ChatBox = () => {
   return (
     <Stack gap={4} className="chat-box">
       <div className="chat-header">
-        <strong >{recipientUser?.username}</strong>
+        <strong style={{ color: "white" }}>{recipientUser?.username}</strong>
       </div>
       <Stack>
         {messages &&
           messages.map((message, index) => (
             <Stack
               key={index}
-            
+              // className={`$(message?.senderId === user?._id) ? "message self align-self-end flex-grwo-0": "message align-self-end flex-grow-0"`}
               className={`${message?.senderId === user?._id ? "message self align-self-end flex-grow-0" : "message align-self-end flex-grow-0"}`}
 
             >

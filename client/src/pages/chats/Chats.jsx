@@ -5,7 +5,7 @@ import UserChat from "../../components/chat/UserChat";
 import { AuthContext } from "../../context/AuthContext";
 import PotentialChats from "../../components/chat/PotentialChats";
 import "../../components/chat/userChat.css";
-import ChatBox from "../../components/chat/chatBox";
+import Messenger from "../../components/chat/Messenger";
 import "./chats.css"
 
 const Chats = () => {
@@ -28,7 +28,7 @@ const Chats = () => {
             );
           })}
            </Stack>
-          <ChatBox/>
+         <Messenger/>
         </Stack>
       )}
     </Container>
